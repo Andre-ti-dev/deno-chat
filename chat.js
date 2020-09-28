@@ -1,37 +1,10 @@
 import { isWebSocketCloseEvent } from "https://deno.land/std/ws/mod.ts";
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-/**
- * userId: {
- * userId: string,
- *  name: string,
- *  groupName: string,
- *  ws: WebSocket
- * }
- */
 const usersMap = new Map();
 
-/**
- * groupName: [user1, user2]
- * {
- *  userId: string,
- *  name: string,
- *  groupName: string,
- *  ws: WebSocket
- * }
- */
 const groupsMap = new Map();
 
-/**
- * groupName: [message1,message2]
- * 
- * {
- *    userId: string,
- *    name: string,
- *    message: string
- * }
- * 
- */
 const messagesMap = new Map();
 
 export default async function chat(ws) {
